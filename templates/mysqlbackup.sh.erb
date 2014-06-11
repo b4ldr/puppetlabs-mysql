@@ -21,7 +21,12 @@ EVENTS="--ignore-table=mysql.event"
 <% else %>
 EVENTS="--events"
 <% end %>
-
+<% if @ignore_stdout -%>
+exec 1> /dev/null
+<% end -%>
+<% if @ignore_stdout -%>
+exec 2> /dev/null
+<% end -%>
 ##### STOP CONFIG ####################################################
 PATH=<%= @execpath %>
 
